@@ -11,7 +11,7 @@ class Album
     @artist_id = options['artist_id'].to_i
   end
 
-  def artist
+  def artist()
     sql = "SELECT * FROM artists
     WHERE id = $1"
     values = [@artist_id]
@@ -39,16 +39,17 @@ class Album
     return albums
   end
 
-  def self.find(album)
+  def self.find(id)
     sql = "SELECT * FROM albums WHERE id = $1"
-    values = [album.id]
+    values = [id]
     result = SqlRunner.run(sql, values).first
 
-    # if found.ntuples == 0
-    #   return nil
-    # end
-    #
     return Album.new(result)
   end
 
+  def update()
+    sql = "UPDATE albums SET (name, genre, artist_id) = ($1, $2, $3) WHERE id = $4"
+    values = [@name, @genre, @artist_id, @id]
+    SqlRunner.run(sql, values)
+  end
 end

@@ -30,12 +30,25 @@ album3 = Album.new({
 album3.save()
 # p album1
 
-# found = Album.find('Perfect Tonight')
+# found = Album.find(album1.id)
 # p found
+
 # p Album.find(album2)
+# p Artist.all
+# p "--"
+#
+# artist1.name = '33'
+# artist1.update
+# p Artist.all
 
-artist1[:name] = 'Biorg'
+# p Album.all
+# album1.name = 'Hello Baby'
+# album1.genre = 'Electro'
+# album1.update
+# p Album.all
 
+# found = Artist.find(artst1.id)
+# p found
 
 binding.pry()
 nil
